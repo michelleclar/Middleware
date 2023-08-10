@@ -1,0 +1,15 @@
+plugins {
+    id 'java'
+}
+
+group 'org.carl'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'co.elastic.clients:elasticsearch-java:8.7.1'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.12.3'
+}
