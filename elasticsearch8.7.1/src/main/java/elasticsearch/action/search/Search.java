@@ -2,7 +2,7 @@ package elasticsearch.action.search;
 
 import co.elastic.clients.elasticsearch.core.SearchResponse;
 import co.elastic.clients.elasticsearch.core.search.Hit;
-import elasticsearch._ElasticsearchClient;
+import elasticsearch.client._ElasticsearchClient;
 
 import java.io.IOException;
 
@@ -12,13 +12,7 @@ import java.io.IOException;
  * @author: Mr.Carl
  **/
 public class Search {
-
-    public static void main(String[] args) {
-        Search search = new Search();
-        User user = new User();
-    }
-
-    <O> void create(O o,  co.elastic.clients.elasticsearch.core.SearchRequest request, Class<O> clazz){
+    <O> void create(co.elastic.clients.elasticsearch.core.SearchRequest request, Class<O> clazz){
         SearchResponse<O> search = null;
         try {
             search = _ElasticsearchClient.getInstance().search(request,
@@ -26,8 +20,6 @@ public class Search {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
-
         for (Hit<O> hit: search.hits().hits()) {
             System.out.println(hit.source());
         }

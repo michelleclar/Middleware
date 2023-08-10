@@ -1,9 +1,7 @@
-package elasticsearch;
+package elasticsearch.client;
 
 import co.elastic.clients.elasticsearch.ElasticsearchClient;
-import co.elastic.clients.elasticsearch._types.ElasticsearchException;
 import co.elastic.clients.elasticsearch.core.SearchRequest;
-import co.elastic.clients.elasticsearch.core.SearchResponse;
 import co.elastic.clients.json.jackson.JacksonJsonpMapper;
 import co.elastic.clients.transport.ElasticsearchTransport;
 import co.elastic.clients.transport.rest_client.RestClientTransport;
@@ -12,7 +10,6 @@ import org.apache.http.HttpHost;
 import org.elasticsearch.client.RestClient;
 
 import java.io.IOException;
-import java.lang.reflect.Type;
 import java.util.Objects;
 import java.util.function.Function;
 
@@ -53,8 +50,6 @@ public class _ElasticsearchClient extends ElasticsearchClient {
                 throw new RuntimeException(e);
             }
         }
-
-        static _ElasticsearchClient instance = init();
         static RestClient restClient;
         static ElasticsearchTransport transport;
     }
