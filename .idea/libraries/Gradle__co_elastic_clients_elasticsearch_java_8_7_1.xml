@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: co.elastic.clients:elasticsearch-java:8.7.1">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/co/elastic/clients/elasticsearch-java/8.7.1/elasticsearch-java-8.7.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/../../../software/apache-maven-3.8.6/mvn_resp/caches/modules-2/files-2.1/co.elastic.clients/elasticsearch-java/8.7.1/7f6ef7d47d9e489cdb2de49ebce99eb3c7d5e9f5/elasticsearch-java-8.7.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
