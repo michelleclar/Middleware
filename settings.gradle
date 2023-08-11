@@ -1,3 +1,6 @@
 rootProject.name = 'Middleware'
 include 'elasticsearch8.7.1'
+include 'MQ'
+include 'MQ:kafka'
+findProject(':MQ:kafka')?.name = 'kafka'
 
