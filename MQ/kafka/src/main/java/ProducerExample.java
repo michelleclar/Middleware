@@ -1,3 +1,4 @@
+import org.apache.kafka.clients.consumer.KafkaConsumer;
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.Producer;
 import org.apache.kafka.clients.producer.ProducerRecord;
@@ -24,6 +25,7 @@ public class ProducerExample {
 
         String[] users = {"eabara", "jsmith", "sgarcia", "jbernard", "htanaka", "awalther"};
         String[] items = {"book", "alarm clock", "t-shirts", "gift card", "batteries"};
+        KafkaConsumer<Object, Object> consumer = new KafkaConsumer<>(props);
         try (final Producer<String, String> producer = new KafkaProducer<>(props)) {
             final Random rnd = new Random();
             final Long numMessages = 10L;
