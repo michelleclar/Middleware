@@ -21,8 +21,6 @@ import java.util.function.Function;
 //TODO: check 线程池自定义属性待改 各属性不使用硬编码
 @Slf4j
 public class _ElasticsearchClient extends ElasticsearchClient {
-    /*懒加载的两种书写方式*/
-    //方式1
     private static class Inner {
         _ElasticsearchClient create(){
             String serverUrl = "http://101.43.4.193:9200";
