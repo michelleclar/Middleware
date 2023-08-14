@@ -28,6 +28,10 @@ subprojects{
         implementation 'org.slf4j:slf4j-api:1.7.32'
         implementation 'org.slf4j:slf4j-simple:1.7.32'
         implementation 'junit:junit:4.12'
+        implementation 'cglib:cglib:3.3.0'
+        //自定义注解
+        implementation 'com.google.auto.service:auto-service:1.1.1'
+        annotationProcessor 'com.google.auto.service:auto-service:1.1.1'
     }
 
 }

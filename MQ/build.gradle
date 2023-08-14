@@ -1,10 +1,6 @@
-plugins {
-    id 'java'
-}
+
 
 group 'org.carl'
 version '1.0-SNAPSHOT'
 
-repositories {
-    mavenCentral()
-}
+

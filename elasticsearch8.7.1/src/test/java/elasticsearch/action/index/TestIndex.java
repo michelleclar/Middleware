@@ -16,13 +16,21 @@ public class TestIndex {
 
     static Index index = Index.Builder.build();
     @Test
-    public void testBuild() throws IOException {
+    public void testCreate() throws IOException {
+        index.create("person");
+    }
+    @Test
+    public void testGet() throws IOException {
         Map<String, IndexState> person = index.getIndex("person");
         System.out.println(person);
     }
 
+
     @Test
-    public void testCreate() throws IOException {
-        index.create("person");
+    public void testDelete() throws IOException {
+        index.deleteIndex("person");
+
     }
+
+
 }

@@ -3,6 +3,7 @@ package elasticsearch.action.search;
 import co.elastic.clients.elasticsearch.core.SearchResponse;
 import co.elastic.clients.elasticsearch.core.search.Hit;
 import elasticsearch.client._ElasticsearchClient;
+import utils.exception.inter.CatchExceptions;
 
 import java.io.IOException;
 
@@ -11,6 +12,7 @@ import java.io.IOException;
  * @description: 搜索响应
  * @author: Mr.Carl
  **/
+@CatchExceptions("类")
 public class Search {
     <O> void create(co.elastic.clients.elasticsearch.core.SearchRequest request, Class<O> clazz){
         SearchResponse<O> search = null;
@@ -24,9 +26,4 @@ public class Search {
             System.out.println(hit.source());
         }
     }
-}
-
-class User{
-    String name;
-    int age;
 }
