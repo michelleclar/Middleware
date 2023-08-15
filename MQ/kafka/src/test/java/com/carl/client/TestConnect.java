@@ -1,6 +1,12 @@
 package com.carl.client;
 
+import org.apache.kafka.clients.admin.AdminClient;
+import org.apache.kafka.clients.admin.ListTopicsOptions;
+import org.apache.zookeeper.ZooKeeper;
 import org.junit.Test;
+
+import java.util.Properties;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @program: Middleware
@@ -9,7 +15,34 @@ import org.junit.Test;
  **/
 public class TestConnect {
     @Test
-    public void testConnect(){
+    public void testConnectKafka() throws Exception {
+        // 创建kafka连接属性
+        Properties props = new Properties();
+        props.put("bootstrap.servers", "101.43.4.193:9092");
 
+        // 创建连接
+        AdminClient client = AdminClient.create(props);
+
+        // 列出topics测试
+        client.listTopics(new ListTopicsOptions().listInternal(true)).names().get(100, TimeUnit.SECONDS).forEach(System.out::println);
+
+        // 关闭连接
+        client.close();
     }
+
+    @Test
+    public void testZookeeper() throws Exception {
+        // 创建zookeeper连接字符串
+        String connString = "101.43.4.193:2181";
+
+        // 创建连接
+        ZooKeeper zookeeper = new ZooKeeper(connString, 10000, null);
+
+        // 打印详情
+        System.out.println(zookeeper.getState());
+
+        // 关闭连接
+        zookeeper.close();
+    }
+
 }
