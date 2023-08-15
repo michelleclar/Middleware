@@ -1,5 +1,6 @@
-package com.carl.client;
+package com.carl.kafka.client;
 
+import com.carl.kafka.client.Client;
 import org.apache.kafka.clients.admin.AdminClient;
 import org.apache.kafka.clients.admin.ListTopicsOptions;
 import org.apache.zookeeper.ZooKeeper;
@@ -10,10 +11,12 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * @program: Middleware
- * @description: 测试连接kafka
+ * @description: 测试kafka 通道创建
  * @author: Mr.Carl
  **/
-public class TestConnect {
+public class TestAdminClient {
+    static Client client = Client.Builder.build();
+
     @Test
     public void testConnectKafka() throws Exception {
         // 创建kafka连接属性
@@ -44,5 +47,8 @@ public class TestConnect {
         // 关闭连接
         zookeeper.close();
     }
-
+    @Test
+    public void testCreatTopic() {
+        client.createTopic("topic-0");
+    }
 }

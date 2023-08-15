@@ -1,10 +1,9 @@
-package com.carl.common.utils;
+package com.carl.kafka.Producer;
 
 import org.apache.kafka.clients.producer.Callback;
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.Producer;
 import org.apache.kafka.clients.producer.ProducerRecord;
-import org.checkerframework.checker.units.qual.C;
 
 import java.io.BufferedInputStream;
 import java.io.FileInputStream;
@@ -19,10 +18,8 @@ import java.util.*;
  * @author: Mr.Carl
  **/
 public class DmsProducer<K, V> {
-    public static class Builder<K, V> {
+    public static class Builder {
         private static Map<Map<Class, Class>, DmsProducer> instances = new HashMap<>();
-
-        static DmsProducer _producer;
 
         static <K, V> DmsProducer init(Class<K> k, Class<V> v) {
             Map<Class, Class> key = new HashMap();

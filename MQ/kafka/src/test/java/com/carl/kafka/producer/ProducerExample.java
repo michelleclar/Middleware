@@ -1,4 +1,4 @@
-package com.carl.client;
+package com.carl.kafka.producer;
 
 import org.apache.kafka.clients.consumer.KafkaConsumer;
 import org.apache.kafka.clients.producer.KafkaProducer;

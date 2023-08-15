@@ -1,9 +1,8 @@
-package com.carl.client;
+package com.carl.kafka.producer;
 
-import com.carl.common.utils.DmsProducer;
+import com.carl.kafka.Producer.DmsProducer;
 import org.apache.kafka.clients.producer.Callback;
 import org.apache.kafka.clients.producer.RecordMetadata;
-import org.apache.kafka.common.protocol.types.Field;
 import org.junit.Test;
 
 /**
