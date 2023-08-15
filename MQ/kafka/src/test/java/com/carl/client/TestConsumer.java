@@ -13,6 +13,7 @@ import java.util.Arrays;
  * @author: Mr.Carl
  **/
 public class TestConsumer {
+
     @Test
     public void testConsumer() throws Exception {
         DmsConsumer consumer = new DmsConsumer();

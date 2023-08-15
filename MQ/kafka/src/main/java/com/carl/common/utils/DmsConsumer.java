@@ -1,5 +1,6 @@
 package com.carl.common.utils;
 
+import com.carl.kafka.client.Client;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
 
@@ -9,14 +10,18 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 import java.util.*;
-
+/**
+ * @program: Middleware
+ * @description: 线程不安全,不采用单例模式
+ * @author: Mr.Carl
+ **/
 public class DmsConsumer {
 
-    public static final String CONFIG_CONSUMER_FILE_NAME = "consumer.properties";
+    protected static final String CONFIG_CONSUMER_FILE_NAME = "consumer.properties";
 
-    private KafkaConsumer<Object, Object> consumer;
+    protected KafkaConsumer<Object, Object> consumer;
 
-    DmsConsumer(String path) {
+    public DmsConsumer(String path) {
         Properties props = new Properties();
         try {
             InputStream in = new BufferedInputStream(new FileInputStream(path));

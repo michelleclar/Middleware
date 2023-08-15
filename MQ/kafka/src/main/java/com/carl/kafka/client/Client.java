@@ -1,11 +1,11 @@
 package com.carl.kafka.client;
 
 import com.carl.common.utils.DmsConsumer;
-import org.apache.jute.Index;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.admin.AdminClient;
 import org.apache.kafka.clients.admin.CreateTopicsResult;
 import org.apache.kafka.clients.admin.NewTopic;
-import org.apache.kafka.common.protocol.types.Field;
+import org.apache.kafka.common.errors.TopicExistsException;
 
 import java.io.BufferedInputStream;
 import java.io.FileInputStream;
@@ -20,15 +20,32 @@ import java.util.concurrent.ExecutionException;
  * @description:
  * @author: Mr.Carl
  **/
+@Slf4j
 public class Client {
     public static class Builder {
-        public static Client build() {
-            return new Client();
+        static Client _client;
+        static Client  init(){
+            if (_client == null || _client.client == null){
+                _client = new Client();
+            }
+            return _client;
         }
+
+        static Client  init(String path){
+            if (_client == null || _client.client == null){
+                _client = new Client(path);
+            }
+            return _client;
+        }
+        public static Client build() {
+            return init();
+        }
+
         public static Client build(String path) {
-            return new Client(path);
+            return init(path);
         }
     }
+
     protected static final String CONFIG_CONSUMER_FILE_NAME = "getting-started.properties";
     AdminClient client;
 
@@ -105,16 +122,35 @@ public class Client {
         return config;
     }
 
-    void createTopic(String topicName) throws ExecutionException, InterruptedException {
+    public void createTopic(String topicName) {
         NewTopic newTopic = new NewTopic(topicName, 3, (short) 1);
-        CreateTopicsResult result =  client.createTopics(Collections.singleton(newTopic));
-        result.all().get();
-
+        CreateTopicsResult result = client.createTopics(Collections.singleton(newTopic));
+        execute(result);
     }
 
-    void createTopic(String topicName, int numPartitions, short replicationFactor) throws ExecutionException, InterruptedException {
+    void execute(CreateTopicsResult r) {
+        try {
+            r.all().get();
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        } catch (TopicExistsException e) {
+            //此异常可不进行处理
+            log.warn(e.toString());
+//            throw new RuntimeException(e);
+        } catch (ExecutionException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+
+    public void createTopic(String topicName, int numPartitions, short replicationFactor) throws ExecutionException, InterruptedException {
         NewTopic newTopic = new NewTopic(topicName, numPartitions, replicationFactor);
         CreateTopicsResult result = client.createTopics(Collections.singleton(newTopic));
         result.all().get();
+    }
+
+    public void close() {
+        client.close();
+        client = null;
     }
 }

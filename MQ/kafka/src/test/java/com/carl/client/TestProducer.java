@@ -3,6 +3,7 @@ package com.carl.client;
 import com.carl.common.utils.DmsProducer;
 import org.apache.kafka.clients.producer.Callback;
 import org.apache.kafka.clients.producer.RecordMetadata;
+import org.apache.kafka.common.protocol.types.Field;
 import org.junit.Test;
 
 /**
@@ -11,6 +12,10 @@ import org.junit.Test;
  * @author: Mr.Carl
  **/
 public class TestProducer {
+    @Test
+    public void testSing(){
+
+    }
     @Test
     public void testProducer() throws Exception {
         DmsProducer<String, String> producer = new DmsProducer<>();

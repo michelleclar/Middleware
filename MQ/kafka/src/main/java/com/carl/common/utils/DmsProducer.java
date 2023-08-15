@@ -1,26 +1,62 @@
 package com.carl.common.utils;
 
+import org.apache.kafka.clients.producer.Callback;
+import org.apache.kafka.clients.producer.KafkaProducer;
+import org.apache.kafka.clients.producer.Producer;
+import org.apache.kafka.clients.producer.ProducerRecord;
+import org.checkerframework.checker.units.qual.C;
+
 import java.io.BufferedInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.Enumeration;
-import java.util.List;
-import java.util.Properties;
+import java.util.*;
 
-import org.apache.kafka.clients.producer.Callback;
-import org.apache.kafka.clients.producer.KafkaProducer;
-import org.apache.kafka.clients.producer.Producer;
-import org.apache.kafka.clients.producer.ProducerRecord;
+/**
+ * @program: Middleware
+ * @description: 线程安全, 采用单例模式
+ * @author: Mr.Carl
+ **/
 public class DmsProducer<K, V> {
+    public static class Builder<K, V> {
+        private static Map<Map<Class, Class>, DmsProducer> instances = new HashMap<>();
+
+        static DmsProducer _producer;
+
+        static <K, V> DmsProducer init(Class<K> k, Class<V> v) {
+            Map<Class, Class> key = new HashMap();
+            key.put(k, v);
+
+            if (!instances.containsKey(key) && instances.get(key).producer == null)
+                instances.put(key, new DmsProducer<K, V>());
+            return instances.get(key);
+        }
+
+        static <K, V> DmsProducer init(Class<K> k, Class<V> v, String path) {
+            Map<Class, Class> key = new HashMap();
+            key.put(k, v);
+
+            if (!instances.containsKey(key) && instances.get(key).producer == null)
+                instances.put(key, new DmsProducer<K, V>(path));
+            return instances.get(key);
+        }
+
+        public static <K, V> DmsProducer<K, V> build(Class<K> k, Class<V> v) {
+            return init(k, v);
+        }
+
+        public static <K, V> DmsProducer<K, V> build(Class<K> k, Class<V> v, String path) {
+            return init(k, v, path);
+        }
+    }
+
     //引入生产消息的配置信息，具体内容参考上文
-    public static final String CONFIG_PRODUCER_FILE_NAME = "producer.properties";
+    protected static final String CONFIG_PRODUCER_FILE_NAME = "producer.properties";
 
-    private Producer<K, V> producer;
+    protected Producer<K, V> producer;
 
-    DmsProducer(String path) {
+    public DmsProducer(String path) {
         Properties props = new Properties();
         try {
             InputStream in = new BufferedInputStream(new FileInputStream(path));
@@ -112,6 +148,7 @@ public class DmsProducer<K, V> {
 
     public void close() {
         producer.close();
+        producer = null;
     }
 
     /**
