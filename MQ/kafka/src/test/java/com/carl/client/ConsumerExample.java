@@ -1,3 +1,5 @@
+package com.carl.client;
+
 import org.apache.kafka.clients.consumer.*;
 
 import java.time.Duration;
@@ -19,7 +21,7 @@ public class ConsumerExample {
         final String topic = "purchases";
 
         // Load consumer configuration settings from a local file
-        // Reusing the loadConfig method from the ProducerExample class
+        // Reusing the loadConfig method from the com.carl.client.ProducerExample class
         final Properties props = ProducerExample.loadConfig(args[0]);
         var o = props.get("bootstrap.servers");
         o = "101.43.4.193:9200";
