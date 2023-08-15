@@ -26,7 +26,7 @@ public class TestConsumer {
                 }
             }
         } catch (Exception e) {
-            // TODO: 异常处理
+            //TODO: 异常处理
             e.printStackTrace();
         } finally {
             consumer.close();
