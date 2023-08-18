@@ -2,6 +2,8 @@ group 'org.carl'
 version '1.0-SNAPSHOT'
 
 repositories {
+    mavenLocal()
+    maven { url "https://maven.aliyun.com/nexus/content/groups/public/" }
     mavenCentral()
 }
 
@@ -24,6 +26,7 @@ subprojects{
         implementation 'org.slf4j:slf4j-simple:1.7.32'
         implementation 'junit:junit:4.12'
         implementation 'cglib:cglib:3.3.0'
+        implementation 'com.google.code.gson:gson:2.8.6'
         //自定义注解
         implementation 'com.google.auto.service:auto-service:1.1.1'
         annotationProcessor 'com.google.auto.service:auto-service:1.1.1'

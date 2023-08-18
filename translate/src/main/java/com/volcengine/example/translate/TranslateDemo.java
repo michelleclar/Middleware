@@ -11,6 +11,7 @@ import com.volcengine.service.translate.impl.TranslateServiceImpl;
 import java.util.Arrays;
 
 public class TranslateDemo {
+    http
     public static void main(String[] args) {
         ITranslateService translateService = TranslateServiceImpl.getInstance();
         // call below method if you dont set ak and sk in ～/.volc/config

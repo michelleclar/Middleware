@@ -3,13 +3,11 @@ package elasticsearch.action.index;
 import co.elastic.clients.elasticsearch._types.ElasticsearchException;
 import co.elastic.clients.elasticsearch.indices.IndexState;
 import elasticsearch.client._ElasticsearchClient;
-import lombok.extern.java.Log;
 import lombok.extern.slf4j.Slf4j;
 import utils.exception.inter.CatchException;
 
 import java.io.IOException;
 import java.util.Map;
-import java.util.Stack;
 
 /**
  * @program: Middleware

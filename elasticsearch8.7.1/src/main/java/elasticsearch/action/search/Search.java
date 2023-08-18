@@ -1,6 +1,7 @@
 package elasticsearch.action.search;
 
 import co.elastic.clients.elasticsearch._types.query_dsl.Query;
+import co.elastic.clients.elasticsearch.core.IndexRequest;
 import co.elastic.clients.elasticsearch.core.SearchRequest;
 import co.elastic.clients.elasticsearch.core.SearchResponse;
 import co.elastic.clients.elasticsearch.core.search.Hit;
@@ -45,6 +46,5 @@ public class Search {
 
     void test(){
         SearchRequest.Builder builder = new SearchRequest.Builder();
-
     }
 }
