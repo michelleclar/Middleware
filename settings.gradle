@@ -4,4 +4,6 @@ include 'MQ'
 include 'MQ:kafka'
 findProject(':MQ:kafka')?.name = 'kafka'
 include 'translate'
+include 'common'
+include 'common'
 

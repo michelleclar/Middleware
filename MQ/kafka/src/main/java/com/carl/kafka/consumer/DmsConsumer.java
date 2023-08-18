@@ -1,6 +1,5 @@
-package com.carl.common.utils;
+package com.carl.kafka.consumer;
 
-import com.carl.kafka.client.Client;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
 

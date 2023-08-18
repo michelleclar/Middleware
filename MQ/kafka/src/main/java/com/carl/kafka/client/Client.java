@@ -1,6 +1,6 @@
 package com.carl.kafka.client;
 
-import com.carl.common.utils.DmsConsumer;
+import com.carl.kafka.consumer.DmsConsumer;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.admin.AdminClient;
 import org.apache.kafka.clients.admin.CreateTopicsResult;

@@ -1,5 +1,6 @@
-package com.carl.client;
+package com.carl.kafka.consumer;
 
+import com.carl.kafka.producer.ProducerExample;
 import org.apache.kafka.clients.consumer.*;
 
 import java.time.Duration;

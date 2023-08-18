@@ -1,6 +1,5 @@
-package com.carl.client;
+package com.carl.kafka.consumer;
 
-import com.carl.common.utils.DmsConsumer;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.junit.Test;
