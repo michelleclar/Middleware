@@ -2,6 +2,8 @@ package elasticsearch.action.search;
 
 import co.elastic.clients.elasticsearch.indices.CreateIndexRequest;
 import co.elastic.clients.json.JsonpMapper;
+import co.elastic.clients.json.SimpleJsonpMapper;
+import co.elastic.clients.json.jackson.JacksonJsonProvider;
 import co.elastic.clients.json.jsonb.JsonbJsonpMapper;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
@@ -46,6 +48,7 @@ public class TestSearch {
                   }
                 }
                 """;
+        JsonpMapper mapper = SimpleJsonpMapper.INSTANCE_REJECT_UNKNOWN_FIELDS;
         InputStream input = this.getClass()
                 .getResourceAsStream("some-index.json");
         CreateIndexRequest req = CreateIndexRequest.of(b -> b
