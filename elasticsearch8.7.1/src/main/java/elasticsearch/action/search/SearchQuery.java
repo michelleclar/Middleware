@@ -1,14 +1,10 @@
 package elasticsearch.action.search;
 
 
-
-
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 
-import java.util.LinkedHashMap;
 import java.util.Map;
-import java.util.Objects;
 
 
 /**
