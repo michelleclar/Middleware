@@ -50,7 +50,7 @@ public class TestIndex {
         System.out.println("Indexed with version " + response.version());
     }
 
-    class Product {
+    public class Product {
         String sku;
         String city;
         double price;
