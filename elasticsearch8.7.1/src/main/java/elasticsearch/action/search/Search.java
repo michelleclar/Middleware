@@ -9,6 +9,7 @@ import co.elastic.clients.elasticsearch.security.User;
 import co.elastic.clients.json.JsonData;
 import co.elastic.clients.util.ObjectBuilder;
 import elasticsearch.client._ElasticsearchClient;
+
 import lombok.extern.slf4j.Slf4j;
 import utils.exception.inter.CatchExceptions;
 
@@ -69,7 +70,7 @@ public class Search {
         List<Hit<User>> hits = response.hits().hits();
         for (Hit<User> hit: hits) {
             User user = hit.source();
-            log.info("Found user " + user.fullName() + ", score " + hit.score());
+//            log.info("Found user " + user.fullName() + ", score " + hit.score());
         }
     }
 }
