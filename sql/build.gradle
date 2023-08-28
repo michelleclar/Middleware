@@ -1,0 +1,26 @@
+ext {
+    mybatisVersion = "3.5.9"
+    mysqlVersion = "8.0.22"
+}
+
+allprojects {
+    apply plugin: "java"
+    apply plugin: "idea"
+    [compileJava, compileTestJava, javadoc]*.options*.encoding = 'UTF-8'
+    sourceCompatibility = 17
+    targetCompatibility = 17
+
+    group "com.carl"
+    version "1.0.0"
+
+    repositories {
+        mavenLocal()
+        maven { url "https://maven.aliyun.com/repository/central" }
+        maven { url "https://maven.aliyun.com/repository/jcenter" }
+        jcenter()
+    }
+
+    dependencies {
+        runtimeOnly "mysql:mysql-connector-java:${mysqlVersion}"
+    }
+}
