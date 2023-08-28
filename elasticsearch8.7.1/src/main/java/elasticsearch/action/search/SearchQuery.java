@@ -24,9 +24,6 @@ public class SearchQuery {
         JSONObject jsonObject = JSON.parseObject(json);
         String firstKey = getFirstKey(jsonObject.getInnerMap());
         System.out.println(firstKey);
-        String s = jsonObject.toString();
-        jsonObject.forEach((k,v)->
-                System.out.println("k:"+k.toString()+" v:"+v.toString()));
     }
 
     public String getFirstKey(Map<String, Object> map){

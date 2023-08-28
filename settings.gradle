@@ -6,4 +6,7 @@ findProject(':MQ:kafka')?.name = 'kafka'
 include 'translate'
 include 'common'
 include 'common'
+include 'sql'
+include 'sql:mybatis'
+findProject(':sql:mybatis')?.name = 'mybatis'
 
