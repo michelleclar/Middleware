@@ -1,0 +1,22 @@
+plugins {
+
+}
+
+apply plugin: "java"
+
+jar {
+    enabled = true
+}
+
+dependencies {
+    compileOnly "org.projectlombok:lombok:${lombokVersion}"
+    implementation "javax.validation:validation-api:${validationApiVersion}"
+    annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
+    implementation "org.apache.commons:commons-lang3:${commonsLang3Version}"
+    implementation "commons-logging:commons-logging:${commonsLoggingVersion}"
+    implementation "com.google.guava:guava:${guavaVersion}"
+    implementation "com.auth0:java-jwt:${jwtVersion}"
+    implementation "com.alibaba:fastjson:${fastjsonVersion}"
+//    implementation "ma.glasnost.orika:orika-core:${orikaVersion}"
+
+}

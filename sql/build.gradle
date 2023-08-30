@@ -22,5 +22,7 @@ allprojects {
 
     dependencies {
         runtimeOnly "mysql:mysql-connector-java:${mysqlVersion}"
+        implementation "ma.glasnost.orika:orika-core:${orikaVersion}"
+//        implementation "javax.servlet:javax.servlet-api:${servletVersion}"
     }
 }

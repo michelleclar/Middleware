@@ -1,5 +1,8 @@
 package org.carl.common.utils.tools;
 
+import org.carl.common.utils.tools.security.bcrypt.BCryptPasswordEncoder;
+import org.carl.common.utils.tools.snowflake.SnowFlakeUtils;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
@@ -9,6 +12,15 @@ import java.util.List;
 import java.util.Properties;
 
 public class tool {
+
+    public static long getSnowFlakeId() {
+        return SnowFlakeUtils.getInstance().getId();
+    }
+
+    public static String getEncode(String str) {
+
+        return BCryptPasswordEncoder.getInstance().encode(str);
+    }
 
     /**
      * get classloader from thread context if no classloader found in thread
@@ -32,7 +44,7 @@ public class tool {
      * @return 配置信息
      * @throws IOException
      */
-    public static Properties loadFromClasspath(String configFileName,Class clazz) throws IOException {
+    public static Properties loadFromClasspath(String configFileName, Class clazz) throws IOException {
         ClassLoader classLoader = getCurrentClassLoader(clazz);
         Properties config = new Properties();
 
@@ -58,4 +70,6 @@ public class tool {
 
         return config;
     }
+
+
 }
