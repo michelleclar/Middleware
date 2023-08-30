@@ -8,8 +8,6 @@ plugins {
 //    }
 //}
 
-group 'org.carl'
-version '1.0-SNAPSHOT'
 
 //apply plugin: "com.github.johnrengelman.shadow"
 
