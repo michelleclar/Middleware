@@ -6,3 +6,5 @@
 /elasticsearch8.7.1/out/production/classes/
 /gradle/
 /.idea/
+/sql/mybatis/out/
+/**/out

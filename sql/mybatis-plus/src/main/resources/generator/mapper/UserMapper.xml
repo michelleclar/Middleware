@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="generator.mapper.UserMapper">
+
+    <resultMap id="BaseResultMap" type="org.carl.common.entity.User">
+            <id property="id" column="id" jdbcType="BIGINT"/>
+            <result property="role" column="role" jdbcType="VARCHAR"/>
+            <result property="username" column="username" jdbcType="VARCHAR"/>
+            <result property="password" column="password" jdbcType="VARCHAR"/>
+            <result property="name" column="name" jdbcType="VARCHAR"/>
+            <result property="phone" column="phone" jdbcType="VARCHAR"/>
+            <result property="isDisable" column="is_disable" jdbcType="TINYINT"/>
+            <result property="dataVersion" column="data_version" jdbcType="BIGINT"/>
+            <result property="createdAt" column="created_at" jdbcType="TIMESTAMP"/>
+            <result property="updatedAt" column="updated_at" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,role,username,
+        password,name,phone,
+        is_disable,data_version,created_at,
+        updated_at
+    </sql>
+
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from user
+        where  id = #{id,jdbcType=BIGINT} 
+    </select>
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+        delete from user
+        where  id = #{id,jdbcType=BIGINT} 
+    </delete>
+    <insert id="insert" keyColumn="id" keyProperty="id" parameterType="org.carl.common.entity.User" useGeneratedKeys="true">
+        insert into user
+        ( id,role,username
+        ,password,name,phone
+        ,is_disable,data_version,created_at
+        ,updated_at)
+        values (#{id,jdbcType=BIGINT},#{role,jdbcType=VARCHAR},#{username,jdbcType=VARCHAR}
+        ,#{password,jdbcType=VARCHAR},#{name,jdbcType=VARCHAR},#{phone,jdbcType=VARCHAR}
+        ,#{isDisable,jdbcType=TINYINT},#{dataVersion,jdbcType=BIGINT},#{createdAt,jdbcType=TIMESTAMP}
+        ,#{updatedAt,jdbcType=TIMESTAMP})
+    </insert>
+    <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="org.carl.common.entity.User" useGeneratedKeys="true">
+        insert into user
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+                <if test="id != null">id,</if>
+                <if test="role != null">role,</if>
+                <if test="username != null">username,</if>
+                <if test="password != null">password,</if>
+                <if test="name != null">name,</if>
+                <if test="phone != null">phone,</if>
+                <if test="isDisable != null">is_disable,</if>
+                <if test="dataVersion != null">data_version,</if>
+                <if test="createdAt != null">created_at,</if>
+                <if test="updatedAt != null">updated_at,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+                <if test="id != null">#{id,jdbcType=BIGINT},</if>
+                <if test="role != null">#{role,jdbcType=VARCHAR},</if>
+                <if test="username != null">#{username,jdbcType=VARCHAR},</if>
+                <if test="password != null">#{password,jdbcType=VARCHAR},</if>
+                <if test="name != null">#{name,jdbcType=VARCHAR},</if>
+                <if test="phone != null">#{phone,jdbcType=VARCHAR},</if>
+                <if test="isDisable != null">#{isDisable,jdbcType=TINYINT},</if>
+                <if test="dataVersion != null">#{dataVersion,jdbcType=BIGINT},</if>
+                <if test="createdAt != null">#{createdAt,jdbcType=TIMESTAMP},</if>
+                <if test="updatedAt != null">#{updatedAt,jdbcType=TIMESTAMP},</if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="org.carl.common.entity.User">
+        update user
+        <set>
+                <if test="role != null">
+                    role = #{role,jdbcType=VARCHAR},
+                </if>
+                <if test="username != null">
+                    username = #{username,jdbcType=VARCHAR},
+                </if>
+                <if test="password != null">
+                    password = #{password,jdbcType=VARCHAR},
+                </if>
+                <if test="name != null">
+                    name = #{name,jdbcType=VARCHAR},
+                </if>
+                <if test="phone != null">
+                    phone = #{phone,jdbcType=VARCHAR},
+                </if>
+                <if test="isDisable != null">
+                    is_disable = #{isDisable,jdbcType=TINYINT},
+                </if>
+                <if test="dataVersion != null">
+                    data_version = #{dataVersion,jdbcType=BIGINT},
+                </if>
+                <if test="createdAt != null">
+                    created_at = #{createdAt,jdbcType=TIMESTAMP},
+                </if>
+                <if test="updatedAt != null">
+                    updated_at = #{updatedAt,jdbcType=TIMESTAMP},
+                </if>
+        </set>
+        where   id = #{id,jdbcType=BIGINT} 
+    </update>
+    <update id="updateByPrimaryKey" parameterType="org.carl.common.entity.User">
+        update user
+        set 
+            role =  #{role,jdbcType=VARCHAR},
+            username =  #{username,jdbcType=VARCHAR},
+            password =  #{password,jdbcType=VARCHAR},
+            name =  #{name,jdbcType=VARCHAR},
+            phone =  #{phone,jdbcType=VARCHAR},
+            is_disable =  #{isDisable,jdbcType=TINYINT},
+            data_version =  #{dataVersion,jdbcType=BIGINT},
+            created_at =  #{createdAt,jdbcType=TIMESTAMP},
+            updated_at =  #{updatedAt,jdbcType=TIMESTAMP}
+        where   id = #{id,jdbcType=BIGINT} 
+    </update>
+</mapper>
