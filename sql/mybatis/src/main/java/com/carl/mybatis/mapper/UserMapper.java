@@ -63,7 +63,7 @@ public interface UserMapper {
     @Select("select u.id,u.role,u.username,u.name,u.phone " +
             "from `user` u " +
             "where u.id = #{userId} ")
-    Optional<User> findById(@Param("userId") Long userId);
+    Optional<User> findByIdOnAnnotation(@Param("userId") Long userId);
 
     /**
      * 根据用户ID和数据版本号修改个人信息
@@ -176,5 +176,8 @@ public interface UserMapper {
     Integer updateIsDisableById(@Param("userId") Long userId,
                                 @Param("dataVersion") Long dataVersion,
                                 @Param("isDisable") Integer isDisable);
+
+    @Delete("delete from user where id = #{userId}")
+    Integer deleteById(@Param("userId") Long userId);
 
 }

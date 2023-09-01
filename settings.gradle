@@ -8,4 +8,6 @@ include 'common'
 include 'sql'
 include 'sql:mybatis'
 findProject(':sql:mybatis')?.name = 'mybatis'
+include 'sql:mybatis-plus'
+findProject(':sql:mybatis-plus')?.name = 'mybatis-plus'
 

@@ -1,5 +1,6 @@
 package org.carl.common.utils.tools;
 
+import org.carl.common.utils.tools.random.RandomNameAndTel;
 import org.carl.common.utils.tools.security.bcrypt.BCryptPasswordEncoder;
 import org.carl.common.utils.tools.snowflake.SnowFlakeUtils;
 
@@ -20,6 +21,14 @@ public class tool {
     public static String getEncode(String str) {
 
         return BCryptPasswordEncoder.getInstance().encode(str);
+    }
+
+    public static String getChineseName() {
+        return RandomNameAndTel.getChineseName();
+    }
+
+    public static String getTel() {
+        return RandomNameAndTel.getTel();
     }
 
     /**
