@@ -3,6 +3,7 @@ ext {
     mysqlVersion = "8.0.22"
     springJdbcVersion = "6.0.11"
     mybatisPlusVersion = "3.4.3.2"
+    mybatisFlexVersion = "1.6.1"
 }
 
 allprojects {

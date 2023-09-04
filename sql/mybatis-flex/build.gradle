@@ -1,0 +1,4 @@
+dependencies {
+    implementation "com.mybatis-flex:mybatis-flex-core:${mybatisFlexVersion}"
+    annotationProcessor "com.mybatis-flex:mybatis-flex-processor:${mybatisFlexVersion}"
+}
