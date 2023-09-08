@@ -4,6 +4,7 @@ ext {
     springJdbcVersion = "6.0.11"
     mybatisPlusVersion = "3.4.3.2"
     mybatisFlexVersion = "1.6.1"
+    jooqVersion = "3.18.6"
 }
 
 allprojects {

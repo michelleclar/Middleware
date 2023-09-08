@@ -12,4 +12,6 @@ include 'sql:mybatis-plus'
 findProject(':sql:mybatis-plus')?.name = 'mybatis-plus'
 include 'sql:mybatis-flex'
 findProject(':sql:mybatis-flex')?.name = 'mybatis-flex'
+include 'sql:jooq'
+findProject(':sql:jooq')?.name = 'jooq'
 
