@@ -50,6 +50,7 @@ ext {
 
     validationApiVersion = "2.0.1.Final"
 
+    jooqVersion = "3.18.6"
 
 }
 
