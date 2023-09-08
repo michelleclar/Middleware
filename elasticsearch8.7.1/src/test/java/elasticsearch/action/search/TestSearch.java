@@ -1,25 +1,16 @@
 package elasticsearch.action.search;
 
 import co.elastic.clients.elasticsearch._types.query_dsl.QueryBuilders;
-import co.elastic.clients.elasticsearch.core.SearchRequest;
 import co.elastic.clients.elasticsearch.core.SearchResponse;
 import co.elastic.clients.elasticsearch.indices.CreateIndexRequest;
 import co.elastic.clients.json.JsonData;
 import co.elastic.clients.json.JsonpMapper;
 import co.elastic.clients.json.SimpleJsonpMapper;
-import co.elastic.clients.json.jackson.JacksonJsonProvider;
-import co.elastic.clients.json.jsonb.JsonbJsonpMapper;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
 import elasticsearch.action.index.TestIndex;
-import jakarta.json.Json;
-import org.elasticsearch.client.RequestOptions;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.Reader;
 
 import static elasticsearch.action.search.Search.esClient;
 

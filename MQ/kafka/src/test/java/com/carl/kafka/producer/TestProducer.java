@@ -3,7 +3,8 @@ package com.carl.kafka.producer;
 import com.carl.kafka.Producer.DmsProducer;
 import org.apache.kafka.clients.producer.Callback;
 import org.apache.kafka.clients.producer.RecordMetadata;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+
 
 /**
  * @program: Middleware

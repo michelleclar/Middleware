@@ -2,7 +2,8 @@ package com.carl.kafka.consumer;
 
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+
 
 import java.util.Arrays;
 

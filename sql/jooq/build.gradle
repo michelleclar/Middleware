@@ -1,0 +1,46 @@
+apply plugin: "java"
+
+dependencies {
+    compileOnly "org.jooq:jooq:${jooqVersion}"
+    compileOnly "org.jooq:jooq-meta:${jooqVersion}"
+    compileOnly "org.jooq:jooq-codegen:${jooqVersion}"
+}
+
+buildscript {
+    repositories {
+        mavenLocal()
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath "org.jooq:jooq-codegen:${jooqVersion}"
+        classpath "mysql:mysql-connector-java:${mysqlVersion}"
+    }
+}
+
+import org.jooq.codegen.GenerationTool
+import org.jooq.meta.jaxb.*
+
+
+
+task jooqCodeGenerate {
+    GenerationTool.generate(new Configuration()
+            .withJdbc(new Jdbc()
+                    .withDriver('com.mysql.cj.jdbc.Driver')
+                    .withUrl('jdbc:mysql://101.43.4.193:3306/study?serverTimezone=UTC')
+                    .withUser('root')
+                    .withPassword('root'))
+            .withGenerator(new Generator()
+                    .withDatabase(new Database()
+                            .withName("org.jooq.meta.mysql.MySQLDatabase")
+                            .withInputSchema("study")
+                            .withIncludes('.*')
+                            .withExcludes())
+                    .withGenerate(new Generate()
+                            .withPojos(true)
+                            .withDaos(true))
+                    .withTarget(new Target()
+                            .withPackageName('org.jooq.example.gradle.db')
+                            .withDirectory('src/main/java'))))
+
+}

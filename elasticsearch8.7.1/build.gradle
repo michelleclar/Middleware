@@ -14,5 +14,9 @@ dependencies {
     implementation 'com.alibaba:fastjson:1.2.83'
     implementation "org.projectlombok:lombok:${lombokVersion}"
     annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
+    implementation "org.slf4j:slf4j-api:1.7.29"
+    implementation 'cglib:cglib:3.3.0'
+    implementation 'com.google.auto.service:auto-service:1.1.1'
+    annotationProcessor 'com.google.auto.service:auto-service:1.1.1'
 //    implementation 'com.fasterxml.jackson.core:jackson-databind:2.12.3'
 }

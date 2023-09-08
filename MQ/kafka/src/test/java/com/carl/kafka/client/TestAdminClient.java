@@ -1,10 +1,9 @@
 package com.carl.kafka.client;
 
-import com.carl.kafka.client.Client;
 import org.apache.kafka.clients.admin.AdminClient;
 import org.apache.kafka.clients.admin.ListTopicsOptions;
 import org.apache.zookeeper.ZooKeeper;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
