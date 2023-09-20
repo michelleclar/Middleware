@@ -12,7 +12,7 @@ import java.util.Enumeration;
 import java.util.List;
 import java.util.Properties;
 
-public class tool {
+public class Tool {
 
     public static long getSnowFlakeId() {
         return SnowFlakeUtils.getInstance().getId();

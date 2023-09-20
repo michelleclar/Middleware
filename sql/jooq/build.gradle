@@ -1,3 +1,11 @@
+apply plugin: "java"
+
+dependencies {
+    implementation project(path: ':common')
+    implementation "org.jooq:jooq:${jooqVersion}"
+    implementation "org.jooq:jooq-meta:${jooqVersion}"
+    implementation "org.jooq:jooq-codegen:${jooqVersion}"
+}
 buildscript {
     repositories {
         mavenLocal()
@@ -9,39 +17,27 @@ buildscript {
         classpath "mysql:mysql-connector-java:${mysqlVersion}"
     }
 }
-apply plugin: "java"
 
-dependencies {
-    compileOnly "org.jooq:jooq:${jooqVersion}"
-    compileOnly "org.jooq:jooq-meta:${jooqVersion}"
-    compileOnly "org.jooq:jooq-codegen:${jooqVersion}"
-}
 
 
 import org.jooq.codegen.GenerationTool
 import org.jooq.meta.jaxb.*
 
+tasks.register('jooqCodeGenerate') {
 
 
-task jooqCodeGenerate {
     GenerationTool.generate(new Configuration()
             .withJdbc(new Jdbc()
                     .withDriver('com.mysql.cj.jdbc.Driver')
-                    .withUrl('jdbc:mysql://101.43.4.193:3306/study?serverTimezone=UTC')
+                    .withUrl('jdbc:mysql://172.18.0.2:3306/study?serverTimezone=UTC')
                     .withUser('root')
                     .withPassword('root'))
             .withGenerator(new Generator()
-                    .withDatabase(new Database()
-//                            .withName("org.jooq.meta.mysql.MySQLDatabase")
-//                            .withInputSchema("study")
-//                            .withIncludes('.*')
-//                            .withExcludes()
-                    )
+                    .withDatabase(new Database())
                     .withGenerate(new Generate()
                             .withPojos(true)
                             .withDaos(true))
                     .withTarget(new Target()
                             .withPackageName('org.jooq.example.gradle.db')
                             .withDirectory('src/main/java'))))
-
 }
