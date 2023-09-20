@@ -17,8 +17,6 @@ public class JooqCodeGenerate {
         String jdbcUrl = "jdbc:mysql://172.18.0.2:3306/study";
         String username = "root";
         String password = "root";
-        Properties properties = System.getProperties();
-        System.out.println(properties);
         // 生成配置
         Configuration configuration = new Configuration()
                 .withJdbc(new org.jooq.meta.jaxb.Jdbc()
@@ -42,9 +40,5 @@ public class JooqCodeGenerate {
 
         // 执行代码生成
         GenerationTool.generate(configuration);
-
-        // 使用 JOOQ DSLContext
-        DSLContext dslContext = DSL.using(jdbcUrl, username, password);
-        // 现在你可以使用生成的代码来查询数据库
     }
 }
