@@ -1,9 +1,11 @@
 ## ElasticSearch 配置
-elasticsearch:
-  schema: http
-  address: 101.43.4.193:9200
-  connectTimeout: 10000
-  socketTimeout: 15000
-  connectionRequestTimeout: 20000
-  maxConnectNum: 100
-  maxConnectPerRoute: 100
+#elasticsearch:
+#  schema: http
+#  address: 101.43.4.193:9200
+#  connectTimeout: 10000
+#  socketTimeout: 15000
+#  connectionRequestTimeout: 20000
+#  maxConnectNum: 100
+#  maxConnectPerRoute: 100
+elasticsearch.schema = http
+elasticsearch.address = 101.43.4.193:9200
